@@ -56,25 +56,3 @@ jobs:
         with:
           name: My APK
           path: build/app/outputs/flutter-apk/app-release.apk
-
-  email:
-    name: Enviando Email
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download APK Artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: My APK
-    - name: Send Email with APK Attachment
-      uses: dawidd6/action-send-mail@v3.3.0
-      with:
-        server_address: smtp.gmail.com
-        server_port: 587
-        username: ${{ secrets.EMAIL_USERNAME }}
-        password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: My APK
-        body: Please find attached the APK.
-        from: ${{ secrets.EMAIL_USERNAME }}
-        to: 'jose.ernesto.santos07@aluno.ifce.edu.br'
-        attachments: 'app-debug.apk'
