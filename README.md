@@ -21,7 +21,12 @@
 
 # Como usar:
 
-Para usar o sistema basta baixar e instalar o APK (*exclusivo para dispositivos Android*) ` por limitações tecnicas durante o desenvolviemnto `.
+Para usar o sistema basta baixar e instalar o APK (*exclusivo para dispositivos Android*) ` por limitações tecnicas durante o desenvolviemnto `. <br>
+Ou baixe o repositório e execute o projeto em debug da seguinte forma: 
+ 1. Inicie o emulador ou dispositivo model Android.
+ 2. Rode ` flutter run ` na raiz do projeto.
+ 3. 🎉✨ O projeto ira executar.
+
 
 Para logar, utilize:
 
