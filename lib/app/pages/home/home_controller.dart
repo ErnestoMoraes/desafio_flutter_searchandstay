@@ -99,11 +99,12 @@ class HomeController extends Cubit<HomeState> {
       emit(state.copyWith(status: HomeStateStatus.loaded, rules: [rule]));
       return rule;
     } catch (e, s) {
-      log('Erro ao buscar regra específica', error: e, stackTrace: s);
+      log('Rule não encontrada', error: e, stackTrace: s);
       emit(
         state.copyWith(
           status: HomeStateStatus.error,
-          errorMessage: 'Erro ao buscar regra específica',
+          errorMessage: 'Rule não encontrada',
+          rules: [],
         ),
       );
       rethrow;
