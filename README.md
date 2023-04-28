@@ -13,7 +13,7 @@
 
 | Verb HTTP   | Endponit       | Descrição                           | Feito? |
 | :---------- | :--------- | :---------------------------------- | :---- |
-| `GET` | `/house_rules` | Lista todos os objetos | Sim |
+| `GET` | `/house_rules` | Listar todos os objetos | Sim |
 | `GET` | `/house_rules/id` | Exibir objeto específico | Sim |
 | `POST` | `/house_rules` | Criar novo elemento | Sim |
 | `PUT` | `/house_rules/id` | Atualizar objeto | Sim |
@@ -21,7 +21,7 @@
 
 # Como usar:
 
-Para usar o sistema basta baixar e instalar o APK (*exclusivo para dispositivos Android*) ` por limitação tecnicas durante o desenvolviemnto `.
+Para usar o sistema basta baixar e instalar o APK (*exclusivo para dispositivos Android*) ` por limitações tecnicas durante o desenvolviemnto `.
 
 Para logar, utilize:
 
