@@ -2,7 +2,6 @@ import 'package:desafio_flutter_searchandstay/app/core/ui/base_state/base_state.
 import 'package:desafio_flutter_searchandstay/app/core/ui/helpers/size_extensions.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/colors_app.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/text_styles.dart';
-import 'package:desafio_flutter_searchandstay/app/core/ui/widgets/my_input_button.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/home_controller.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/home_state.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/widgets/rule_tile.dart';
