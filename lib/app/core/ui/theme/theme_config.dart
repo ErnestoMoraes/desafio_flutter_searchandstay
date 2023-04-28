@@ -21,7 +21,7 @@ class ThemeConfig {
     appBarTheme: AppBarTheme(
       backgroundColor: ColorsApp.instance.background,
       elevation: 0,
-      centerTitle: true,
+      centerTitle: false,
       iconTheme: IconThemeData(
         color: ColorsApp.instance.cardwhite,
       ),

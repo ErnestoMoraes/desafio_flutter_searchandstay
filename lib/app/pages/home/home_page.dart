@@ -1,7 +1,6 @@
 import 'package:desafio_flutter_searchandstay/app/core/ui/base_state/base_state.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/colors_app.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/text_styles.dart';
-import 'package:desafio_flutter_searchandstay/app/models/rule_model.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/home_controller.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/home_state.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/widgets/rule_tile.dart';
@@ -27,7 +26,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('List of Rules'),
         actions: [
           IconButton(
             onPressed: () {

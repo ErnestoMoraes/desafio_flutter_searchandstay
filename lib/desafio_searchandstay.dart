@@ -12,6 +12,7 @@ class DesafioSearchandstay extends StatelessWidget {
     return ApplicationBinding(
       child: MaterialApp(
         title: 'Desafio Searchandstay',
+        debugShowCheckedModeBanner: false,
         theme: ThemeConfig.theme,
         routes: {
           '/': (context) => const LoginPage(),
