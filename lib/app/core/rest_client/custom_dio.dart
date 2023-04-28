@@ -1,4 +1,3 @@
-import 'package:desafio_flutter_searchandstay/app/core/config/env/env.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
@@ -6,7 +5,7 @@ class CustomDio extends DioForNative {
   CustomDio()
       : super(
           BaseOptions(
-            baseUrl: Env.instance['backend_base_url'] ?? '',
+            baseUrl: 'https://sys-dev.searchandstay.com/api/admin',
             connectTimeout: const Duration(milliseconds: 5000),
             receiveTimeout: const Duration(milliseconds: 60000),
           ),
