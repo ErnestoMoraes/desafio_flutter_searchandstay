@@ -19,6 +19,16 @@
 | `PUT` | `/house_rules/id` | Atualizar objeto | Sim |
 | `DELETE` | `/house_rules/id` | Deletar objeto | Sim |
 
+# Como usar:
+
+Para usar o sistema basta baixar e instalar o APK (*exclusivo para dispositivos Android*) ` por limitação tecnicas durante o desenvolviemnto `.
+
+Para logar, utilize:
+
+| Matricula  | Senha    |
+| :--------- | :------- |
+|  `123123`  | `123123` | 
+
 ## Autor
 
 - [@ErnestoMoraes](https://www.github.com/ErnestoMoraes)
