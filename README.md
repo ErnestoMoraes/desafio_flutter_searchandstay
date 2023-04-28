@@ -23,7 +23,9 @@
 
 Visialização de como a aplicação funciona:
 
-![](https://github.com/ErnestoMoraes/desafio_flutter_searchandstay/blob/dev/assets/video.gif)
+<img src="https://github.com/ErnestoMoraes/desafio_flutter_searchandstay/blob/dev/assets/video.gif" height="550">
+
+
 
 ## Autor
 
