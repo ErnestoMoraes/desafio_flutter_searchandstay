@@ -29,6 +29,12 @@ Para logar, utilize:
 | :--------- | :------- |
 |  `123123`  | `123123` | 
 
+## Demonstração
+
+Visialização de como a aplicação funciona:
+
+<img src="https://github.com/ErnestoMoraes/desafio_flutter_searchandstay/blob/dev/assets/video.gif" height="550">
+
 ## Autor
 
 - [@ErnestoMoraes](https://www.github.com/ErnestoMoraes)
