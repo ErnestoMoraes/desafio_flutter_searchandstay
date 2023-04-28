@@ -19,6 +19,12 @@
 | `PUT` | `/house_rules/id` | Atualizar objeto | Sim |
 | `DELETE` | `/house_rules/id` | Deletar objeto | Sim |
 
+## Demonstração
+
+Visialização de como a aplicação funciona:
+
+![](https://github.com/ErnestoMoraes/desafio_flutter_searchandstay/blob/dev/assets/video.gif)
+
 ## Autor
 
 - [@ErnestoMoraes](https://www.github.com/ErnestoMoraes)
