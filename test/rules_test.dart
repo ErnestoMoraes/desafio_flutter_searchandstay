@@ -1,17 +1,12 @@
 import 'dart:developer';
-
-import 'package:desafio_flutter_searchandstay/app/core/config/env/env.dart';
 import 'package:desafio_flutter_searchandstay/app/core/exceptions/repository_exception.dart';
 import 'package:desafio_flutter_searchandstay/app/core/rest_client/custom_dio.dart';
 import 'package:desafio_flutter_searchandstay/app/models/rule_model.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Future<void> main() async {
-  await Env.instance.load();
   CustomDio dio = CustomDio();
-  await dotenv.load(fileName: ".env");
-  const id = 576;
+  const id = 590;
   setUp(() {
     dio = CustomDio();
   });
