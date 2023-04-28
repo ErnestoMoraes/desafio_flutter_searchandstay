@@ -48,6 +48,7 @@ dependencies:
   build_runner: ^2.3.3
   match_generator: ^0.4.2
   awesome_dialog: ^3.0.2
+  mockito: ^5.4.0
 
 dev_dependencies:
   flutter_test:
