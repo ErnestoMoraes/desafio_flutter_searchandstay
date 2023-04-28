@@ -1,4 +1,5 @@
 import 'package:desafio_flutter_searchandstay/app/core/ui/base_state/base_state.dart';
+import 'package:desafio_flutter_searchandstay/app/core/ui/helpers/size_extensions.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/colors_app.dart';
 import 'package:desafio_flutter_searchandstay/app/core/ui/styles/text_styles.dart';
 import 'package:desafio_flutter_searchandstay/app/pages/home/home_controller.dart';
@@ -109,14 +110,10 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           ),
           IconButton(
             onPressed: () async {
-              int index = 519;
-              await controller
-                  .buscarRuleEspecifico(index)
-                  .then((value) => showSucess('Atividade encontrada'))
-                  .catchError((error) => showError('Erro ao buscar atividade'));
+              controller.carregarRules();
             },
             icon: const Icon(
-              Icons.search,
+              Icons.refresh,
             ),
           ),
         ],
@@ -138,27 +135,72 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
           loaded: () => true,
         ),
         builder: (context, state) {
-          return Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: state.rules.length,
-                  itemBuilder: (context, index) {
-                    final rule = state.rules[index];
-                    return Column(
-                      children: [
-                        RuleTile(
-                          rule: rule,
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: context.screenWidth * .02),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: TextFormField(
+                          controller: newRuleEC,
+                          keyboardType: TextInputType.number,
+                          style: TextStyles.instance.texLabelH4.copyWith(
+                            color: ColorsApp.instance.labelblack1,
+                            fontSize: 20,
+                            fontWeight:
+                                TextStyles.instance.textButtonLabel.fontWeight,
+                          ),
+                          decoration: const InputDecoration(
+                            hintText: 'search for rule by ID',
+                          ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        )
-                      ],
-                    );
-                  },
+                      ),
+                      SizedBox(
+                        width: context.screenWidth * .01,
+                      ),
+                      SizedBox(
+                        height: context.percentWidth(.15),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            int index = int.parse(newRuleEC.text);
+                            await controller
+                                .buscarRuleEspecifico(index)
+                                .then((value) =>
+                                    showSucess('Atividade encontrada'))
+                                .catchError((error) =>
+                                    showError('Erro ao buscar atividade'));
+                            newRuleEC.clear();
+                          },
+                          child: const Icon(Icons.search_rounded),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              )
-            ],
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: state.rules.length,
+                    itemBuilder: (context, index) {
+                      final rule = state.rules[index];
+                      return Column(
+                        children: [
+                          RuleTile(
+                            rule: rule,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          )
+                        ],
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),
