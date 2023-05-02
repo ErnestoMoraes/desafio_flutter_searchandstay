@@ -21,8 +21,8 @@ Future<void> main() async {
             response.map<RuleModel>((r) => RuleModel.fromMap(r)).toList();
         expect(rules.isNotEmpty, true);
       } catch (e, s) {
-        log('Erro ao buscar atividades', error: e, stackTrace: s);
-        throw RepositoryException(message: 'Erro ao buscar atividades');
+        log('Error Fetching All Rule', error: e, stackTrace: s);
+        throw RepositoryException(message: 'Error Fetching All Rule');
       }
     });
 
@@ -33,8 +33,8 @@ Future<void> main() async {
         final rule = result.data['data'];
         expect(rule.isNotEmpty, true);
       } catch (e, s) {
-        log('Erro ao buscar atividades', error: e, stackTrace: s);
-        throw RepositoryException(message: 'Erro ao buscar atividades');
+        log('Error Fetching Rule', error: e, stackTrace: s);
+        throw RepositoryException(message: 'Error Fetching Rule');
       }
     });
 
@@ -50,8 +50,8 @@ Future<void> main() async {
         final rule = result.data['data'];
         expect(rule.isNotEmpty, true);
       } catch (e, s) {
-        log('Erro ao criar nova atividades', error: e, stackTrace: s);
-        throw RepositoryException(message: 'Erro ao criar nova atividades');
+        log('Error creating new rule', error: e, stackTrace: s);
+        throw RepositoryException(message: 'Error creating new rule');
       }
     });
 
@@ -68,8 +68,8 @@ Future<void> main() async {
         final rule = result.data['data'];
         expect(rule.isNotEmpty, true);
       } catch (e, s) {
-        log('Erro ao criar nova atividades', error: e, stackTrace: s);
-        throw RepositoryException(message: 'Erro ao criar nova atividades');
+        log('Error updating rule', error: e, stackTrace: s);
+        throw RepositoryException(message: 'Error updating rule');
       }
     });
 

@@ -50,14 +50,13 @@ class _RuleTileState extends BaseState<RuleTile, HomeController> {
               ),
               SlidableAction(
                 onPressed: ((context) {
-                  print('clicou em apagar');
                   context
                       .read<HomeController>()
                       .apagarRule(widget.rule.id)
                       .then(
-                          (value) => showInfo('Atividade apagada com sucesso'))
+                          (value) => showInfo('Rule Deleted Successfully'))
                       .catchError(
-                          (error) => showError('Erro ao apagar atividade'));
+                          (error) => showError('Error Deleting Activity'));
                 }),
                 backgroundColor: Colors.red,
                 icon: Icons.delete,

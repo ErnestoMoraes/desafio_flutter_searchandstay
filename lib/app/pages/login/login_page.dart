@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> with Messages {
                             Expanded(
                               child: MyInputButton(
                                 height: 60,
-                                label: 'Entrar',
+                                label: 'Login',
                                 onPressed: () {
                                   if (matriculaEC.text == '123123' &&
                                       senhaEC.text == '123123') {
