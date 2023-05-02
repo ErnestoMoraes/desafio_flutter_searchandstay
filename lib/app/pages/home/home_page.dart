@@ -27,7 +27,13 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List of Rules'),
+        title: Text(
+          'Rules',
+          style: context.textStyles.textButtonLabel.copyWith(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
@@ -154,7 +160,7 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                                 TextStyles.instance.textButtonLabel.fontWeight,
                           ),
                           decoration: const InputDecoration(
-                            hintText: 'search for rule by ID',
+                            hintText: 'Search by ID',
                           ),
                         ),
                       ),
@@ -169,8 +175,8 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                             await controller
                                 .buscarRuleEspecifico(index)
                                 .then((value) => showSucess('Rule Found'))
-                                .catchError((error) =>
-                                    showError('Rule Not Found'));
+                                .catchError(
+                                    (error) => showError('Rule Not Found'));
                             newRuleEC.clear();
                           },
                           child: const Icon(Icons.search_rounded),
