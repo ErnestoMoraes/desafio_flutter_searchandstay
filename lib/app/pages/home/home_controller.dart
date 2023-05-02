@@ -18,14 +18,14 @@ class HomeController extends Cubit<HomeState> {
     try {
       await Future.delayed(const Duration(seconds: 2));
       final rules = await _repository.findAllRules();
+      rules.sort((a, b) => a.name.compareTo(b.name));
       emit(state.copyWith(status: HomeStateStatus.loaded, rules: rules));
     } catch (e, s) {
-      log('Erro ao carregar as regras', error: e, stackTrace: s);
+      log('Error Fetching Rules', error: e, stackTrace: s);
       emit(
         state.copyWith(
-          status: HomeStateStatus.error,
-          errorMessage: 'Erro ao carregar as regras',
-        ),
+            status: HomeStateStatus.error,
+            errorMessage: 'Error Fetching Rules'),
       );
     }
   }
@@ -38,11 +38,11 @@ class HomeController extends Cubit<HomeState> {
       final rules = state.rules.where((r) => r.id != id).toList();
       emit(state.copyWith(status: HomeStateStatus.loaded, rules: rules));
     } catch (e, s) {
-      log('Erro ao apagar as regras', error: e, stackTrace: s);
+      log('Error Deleting Rules', error: e, stackTrace: s);
       emit(
         state.copyWith(
           status: HomeStateStatus.error,
-          errorMessage: 'Erro ao apagar as regras',
+          errorMessage: 'Error Deleting Rules',
         ),
       );
     }
@@ -61,11 +61,11 @@ class HomeController extends Cubit<HomeState> {
       }).toList();
       emit(state.copyWith(status: HomeStateStatus.loaded, rules: rules));
     } catch (e, s) {
-      log('Erro ao editar as regras', error: e, stackTrace: s);
+      log('Error Editing Rules', error: e, stackTrace: s);
       emit(
         state.copyWith(
           status: HomeStateStatus.error,
-          errorMessage: 'Erro ao editar as regras',
+          errorMessage: 'Error Editing Rules',
         ),
       );
     }
@@ -77,37 +77,33 @@ class HomeController extends Cubit<HomeState> {
       await Future.delayed(const Duration(seconds: 1));
       await _repository.createRule(rule);
       final newRules = await _repository.findAllRules();
-      emit(
-        state.copyWith(status: HomeStateStatus.loaded, rules: newRules),
-      );
+      emit(state.copyWith(status: HomeStateStatus.loaded, rules: newRules));
     } catch (e, s) {
-      log('Erro ao criar nova regra', error: e, stackTrace: s);
+      log('Error Creating New Rule', error: e, stackTrace: s);
       emit(
         state.copyWith(
           status: HomeStateStatus.error,
-          errorMessage: 'Erro ao criar nova regra',
+          errorMessage: 'Error Creating New Rule',
         ),
       );
     }
   }
 
-  Future<RuleModel> buscarRuleEspecifico(int id) async {
+  Future<void> buscarRuleEspecifico(int id) async {
     emit(state.copyWith(status: HomeStateStatus.loading));
     try {
       await Future.delayed(const Duration(seconds: 1));
       final rule = await _repository.getRule(id);
       emit(state.copyWith(status: HomeStateStatus.loaded, rules: [rule]));
-      return rule;
     } catch (e, s) {
-      log('Rule não encontrada', error: e, stackTrace: s);
+      log('Rule Not Found', error: e, stackTrace: s);
       emit(
         state.copyWith(
           status: HomeStateStatus.error,
-          errorMessage: 'Rule não encontrada',
-          rules: [],
+          errorMessage: 'Rule Not Found Here',
+          rules: <RuleModel>[],
         ),
       );
-      rethrow;
     }
   }
 }

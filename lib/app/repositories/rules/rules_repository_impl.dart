@@ -38,8 +38,8 @@ class RulesRepositoryImpl implements RulesRepository {
       final rule = RuleModel.fromMap(response);
       return rule;
     } on DioError catch (e, s) {
-      log('Erro ao buscar atividade: $id', error: e, stackTrace: s);
-      throw RepositoryException(message: 'Erro ao buscar atividade: $id');
+      log('Error Fetching Rule: $id', error: e, stackTrace: s);
+      throw RepositoryException(message: 'Error Fetching Rule: $id');
     }
   }
 

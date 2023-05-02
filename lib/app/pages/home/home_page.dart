@@ -81,15 +81,14 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                             if (lancamento.isNotEmpty && lancamento != '') {
                               controller
                                   .criarNovoRule(searchEC.text)
-                                  .then(
-                                      (value) => showSucess('Atividade criada'))
+                                  .then((value) => showSucess('Rule Created'))
                                   .catchError((error) =>
-                                      showError('Erro ao criar atividade'));
+                                      showError('Error Creating Rule'));
                               searchEC.clear();
                               lancamento = '';
                               Navigator.of(context).pop();
                             } else {
-                              showError('Campo vazio');
+                              showError('Empty Field');
                             }
                           },
                           child: Text(
@@ -169,10 +168,9 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                             int index = int.parse(newRuleEC.text);
                             await controller
                                 .buscarRuleEspecifico(index)
-                                .then((value) =>
-                                    showSucess('Atividade encontrada'))
+                                .then((value) => showSucess('Rule Found'))
                                 .catchError((error) =>
-                                    showError('Erro ao buscar atividade'));
+                                    showError('Rule Not Found'));
                             newRuleEC.clear();
                           },
                           child: const Icon(Icons.search_rounded),
@@ -188,11 +186,13 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                       final rule = state.rules[index];
                       return Column(
                         children: [
-                          RuleTile(
-                            rule: rule,
-                          ),
-                          const SizedBox(
-                            height: 10,
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: context.screenWidth * .02,
+                              right: context.screenWidth * .02,
+                              top: context.screenWidth * .02,
+                            ),
+                            child: RuleTile(rule: rule),
                           )
                         ],
                       );
